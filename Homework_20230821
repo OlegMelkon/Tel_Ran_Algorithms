@@ -1,0 +1,26 @@
+package algorithms;
+
+import java.util.Scanner;
+
+public class onesNumber {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Введите целое число: ");
+        int numDec = sc.nextInt();
+        sc.close();
+        System.out.printf("Введённое число в бинарном виде содержит %d единиц", onesCount(numDec));
+
+    }
+
+    public static int onesCount(int number){
+        String numBin = Integer.toBinaryString(number);
+        System.out.println("Введённое число в двоичной системе счисления: " + numBin);
+        int count = 0;
+        for (int i = 0; i < numBin.length(); i++) {
+            if (Character.digit(numBin.charAt(i), 10) == 1) count += 1;
+        }
+        return count;
+    }
+}
